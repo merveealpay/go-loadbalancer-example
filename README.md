@@ -16,3 +16,27 @@ npx http-server -p 5003
 
 curl atınca art arda, 
 yükün sırayla 1-2-3-1-2-3.... seklinde dagıtıldıgını goruyoruz.
+
+
+//notlar / notes
+// godoc is important! 
+
+The Dial function connects to a server
+conn, err := net.Dial("tcp", "golang.org:80")
+if err != nil {
+	// handle error
+}
+
+//The Listen function creates servers:
+
+ln, err := net.Listen("tcp", ":8080")
+if err != nil {
+	// handle error
+}
+for {
+	conn, err := ln.Accept()
+	if err != nil {
+		// handle error
+	}
+	go handleConnection(conn)
+}
